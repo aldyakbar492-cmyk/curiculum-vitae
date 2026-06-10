@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Aldy Muhammad Akbar · Portofolio & CV Web</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      color: #0f172a;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    /* header utama */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      color: white;
+    }
+
+    .hero-name {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: #cbd5e1;
+      margin-bottom: 1.25rem;
+      border-left: 3px solid #38bdf8;
+      padding-left: 1rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+    }
+
+    .contact-info i {
+      width: 1.4rem;
+      color: #38bdf8;
+    }
+
+    .contact-info a {
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* summary / ringkasan */
+    .summary {
+      background: #f8fafc;
+      padding: 1.8rem 2.5rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .summary p {
+      font-size: 1rem;
+      color: #1e293b;
+      max-width: 85%;
+    }
+
+    /* layout dua kolom */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 0;
+    }
+
+    /* kiri (pendidikan, organisasi, sertifikasi) */
+    .left-panel {
+      background: white;
+      padding: 2rem 0 2rem 2.5rem;
+      border-right: 1px solid #eef2f6;
+    }
+
+    /* kanan (pengalaman proyek, skill) */
+    .right-panel {
+      background: white;
+      padding: 2rem 2.5rem 2rem 1.8rem;
+    }
+
+    /* style section umum */
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.2px;
+      color: #0f172a;
+      border-left: 4px solid #0f172a;
+      padding-left: 0.9rem;
+    }
+
+    .section-title i {
+      color: #0284c7;
+      font-size: 1.2rem;
+    }
+
+    .edu-item, .org-item, .cert-item {
+      margin-bottom: 1.4rem;
+    }
+
+    .edu-title {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #0f172a;
+    }
+
+    .edu-meta, .org-meta, .cert-meta {
+      font-size: 0.75rem;
+      color: #475569;
+      margin: 0.2rem 0 0.4rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .edu-desc, .org-desc {
+      font-size: 0.85rem;
+      color: #334155;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .edu-desc li, .org-desc li {
+      margin-bottom: 0.4rem;
+      position: relative;
+      padding-left: 1.1rem;
+    }
+
+    .edu-desc li:before, .org-desc li:before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #0284c7;
+      font-size: 0.8rem;
+    }
+
+    .org-item p, .cert-item p {
+      font-size: 0.85rem;
+      color: #1e293b;
+      margin-top: 0.3rem;
+    }
+
+    .cert-badge {
+      background: #eef2ff;
+      padding: 0.3rem 0.7rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      display: inline-block;
+      font-weight: 600;
+      color: #1e40af;
+    }
+
+    /* proyek */
+    .project-item {
+      margin-bottom: 1.7rem;
+    }
+
+    .project-title {
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .project-tech {
+      font-size: 0.7rem;
+      background: #e2e8f0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-weight: 500;
+      color: #1e293b;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: #2c3e50;
+      margin-top: 0.5rem;
+      padding-left: 0.2rem;
+      list-style-type: none;
+    }
+
+    .project-desc li {
+      margin-bottom: 0.45rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .project-desc li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #0284c7;
+      font-weight: bold;
+    }
+
+    /* skill chips */
+    .skills-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.8rem;
+    }
+
+    .skill-chip {
+      background: #f1f5f9;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #0c4a6e;
+      transition: all 0.2s;
+      border: 1px solid #e2e8f0;
+    }
+
+    .skill-chip i {
+      margin-right: 0.3rem;
+      font-size: 0.75rem;
+      color: #0369a1;
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      body {
+        padding: 1rem;
+      }
+      .cv-grid {
+        grid-template-columns: 1fr;
+      }
+      .left-panel {
+        border-right: none;
+        border-bottom: 1px solid #eef2f6;
+        padding: 1.5rem;
+      }
+      .right-panel {
+        padding: 1.5rem;
+      }
+      .summary p {
+        max-width: 100%;
+      }
+      .hero-name {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 1.8rem;
+      }
+      .section-title {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    /* badge certif detail */
+    .cert-detail {
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+      font-family: monospace;
+      color: #2c3e66;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      background: #f8fafc;
+      font-size: 0.75rem;
+      color: #5b6e8c;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0f172a;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: 0.2s;
+      margin-top: 0.8rem;
+    }
+    .btn-download:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header area -->
+  <div class="hero">
+    <div class="hero-name">ALDY MUHAMMAD AKBAR</div>
+    <div class="hero-tagline">
+      Mahasiswa Semester 1 · Informatika/Sistem Informasi · Frontend Web Developer (React | HTML/CSS/JS)
+    </div>
+    <div class="contact-info">
+      <span><i class="fas fa-map-marker-alt"></i> Bandung, Jawa Barat</span>
+      <span><i class="fas fa-envelope"></i> <a href="mailto:aldy.akbar492@gmail.com">aldy.akbar492@gmail.com</a></span>
+      <span><i class="fab fa-linkedin"></i> <a href="#">linkedin.com/in/aldy-akbar</a> (portfolio)</span>
+      <span><i class="fab fa-github"></i> <a href="#">github.com/aldyakbar</a></span>
+    </div>
+  </div>
+
+  <!-- ringkasan profil -->
+  <div class="summary">
+    <p>✨ Mahasiswa Semester 1 Jurusan Informatika/Sistem Informasi di Universitas Indonesia Membangun (INABA) dengan semangat tinggi berkarir di bidang teknologi, khususnya sebagai <strong>Frontend Web Developer</strong>. Menguasai fondasi modern: HTML5, CSS3, JavaScript, serta memiliki sertifikasi resmi dari Dicoding Academy – Google Developers Training Partner. Berpengalaman membangun landing page produk komersial untuk digitalisasi UMKM serta sistem komputasi interaktif berbasis web.</p>
+  </div>
+
+  <!-- dua kolom utama -->
+  <div class="cv-grid">
+    <!-- KOLOM KIRI: Pendidikan, Organisasi, Sertifikasi -->
+    <div class="left-panel">
+      <!-- PENDIDIKAN -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-graduation-cap"></i> Pendidikan
+        </div>
+        <div class="edu-item">
+          <div class="edu-title">Universitas Indonesia Membangun (INABA)</div>
+          <div class="edu-meta">2026 – Sekarang | S1 Informatika / Sistem Informasi – Semester 1</div>
+          <ul class="edu-desc">
+            <li>Fokus pada pendalaman struktur data, algoritma dasar, dan pengembangan kompetensi rekayasa perangkat lunak.</li>
+          </ul>
+        </div>
+        <div class="edu-item">
+          <div class="edu-title">SMA Mu'allimin 50 Lembang</div>
+          <div class="edu-meta">IPA (Ilmu Pengetahuan Alam) | 2023 – 2026 | Rata-rata: 84/100</div>
+          <ul class="edu-desc">
+            <li>Membentuk landasan logika analitis kuat melalui studi matematika, kalkulus dasar, dan sains terapan.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ORGANISASI -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-users"></i> Pengalaman Organisasi
+        </div>
+        <div class="org-item">
+          <div class="edu-title">Komunitas Angkatan / Organisasi Kesiswaan SMA</div>
+          <div class="edu-meta">Staf Bendahara</div>
+          <ul class="org-desc">
+            <li>Mengelola pencatatan arus kas masuk/keluar untuk pendanaan operasional serta agenda kegiatan organisasi secara berkala.</li>
+            <li>Menyusun laporan keuangan bulanan secara transparan dan penarikan iuran rutin dengan akurasi data 100%.</li>
+            <li>Berkolaborasi dengan ketua umum dalam merencanakan alokasi anggaran belanja logistik demi efisiensi dana.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SERTIFIKASI & PELATIHAN -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-certificate"></i> Sertifikasi & Pelatihan
+        </div>
+        <div class="cert-item">
+          <div class="edu-title">Belajar Dasar Pemrograman Web – Dicoding Academy</div>
+          <div class="cert-meta">Google Developers Training Partner | Sertifikat: MRZMWLKMKPYQ | Maret 2026</div>
+          <p>✅ Pelatihan intensif 41 jam mencakup HTML Semantik, CSS Box Model, positioning, float, Flexbox & desain responsif.</p>
+          <div class="cert-badge"><i class="fas fa-check-circle"></i> 41 jam tersertifikasi</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KOLOM KANAN: PROYEK & KEMAMPUAN -->
+    <div class="right-panel">
+      <!-- PROYEK WEB -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-code"></i> Pengalaman Proyek Web
+        </div>
+        <div class="project-item">
+          <div class="project-title">
+            Sistem Perhitungan Ahli Waris
+            <span class="project-tech">HTML5, CSS3, JavaScript</span>
+          </div>
+          <ul class="project-desc">
+            <li>Aplikasi web untuk menghitung pembagian harta waris otomatis berdasarkan kaidah fiqih.</li>
+            <li>Mengimplementasikan logika algoritma matematika ke dalam kode JavaScript akurat & terstruktur.</li>
+            <li>Antarmuka interaktif yang memudahkan input data & real-time hasil kalkulasi.</li>
+          </ul>
+        </div>
+        <div class="project-item">
+          <div class="project-title">
+            Landing Page & Website Produk UMKM
+            <span class="project-tech">HTML, CSS, JS, Vercel</span>
+          </div>
+          <ul class="project-desc">
+            <li>Mengembangkan landing page interaktif dan katalog produk digital untuk mendukung digitalisasi UMKM.</li>
+            <li>Mengoptimalkan performa pemuatan halaman → respons cepat di mobile & desktop.</li>
+            <li>Deploy & hosting menggunakan Vercel untuk akses publik yang andal.</li>
+          </ul>
+        </div>
+        <div class="project-item">
+          <div class="project-title">
+            Responsive UI Implementation
+            <span class="project-tech">CSS Flexbox, Media Queries</span>
+          </div>
+          <ul class="project-desc">
+            <li>Desain adaptif menggunakan CSS Media Queries & Flexbox Layouting untuk tampilan multi-perangkat.</li>
+            <li>Konsistensi visual & fungsionalitas antarmuka pada berbagai ukuran layar (smartphone hingga desktop).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KEMAMPUAN TEKNIS & SOFT -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-microchip"></i> Kemampuan
+        </div>
+        <div class="skills-box">
+          <span class="skill-chip"><i class="fab fa-html5"></i> HTML5</span>
+          <span class="skill-chip"><i class="fab fa-css3-alt"></i> CSS3</span>
+          <span class="skill-chip"><i class="fab fa-js"></i> JavaScript</span>
+          <span class="skill-chip"><i class="fab fa-figma"></i> Responsive Design</span>
+          <span class="skill-chip"><i class="fas fa-layer-group"></i> Flexbox/Grid</span>
+          <span class="skill-chip"><i class="fas fa-chart-line"></i> Problem Solving</span>
+          <span class="skill-chip"><i class="fab fa-git-alt"></i> Git & Vercel</span>
+          <span class="skill-chip"><i class="fas fa-calculator"></i> Logika Algoritma</span>
+        </div>
+        <div style="margin-top: 1.2rem;">
+          <span class="skill-chip"><i class="fas fa-database"></i> Struktur Data Dasar</span>
+          <span class="skill-chip"><i class="fas fa-mobile-alt"></i> Mobile-First approach</span>
+          <span class="skill-chip"><i class="fas fa-file-code"></i> Semantic HTML</span>
+        </div>
+      </div>
+
+      <!-- TOOLS & Lainnya -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-tools"></i> Tools & Environment
+        </div>
+        <div class="skills-box">
+          <span class="skill-chip">VS Code</span>
+          <span class="skill-chip">Vercel</span>
+          <span class="skill-chip">Git / GitHub</span>
+          <span class="skill-chip">Chrome DevTools</span>
+          <span class="skill-chip">Figma (dasar)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- interactive widget: simulasi sederhana (soft preview) + tombol download pdf? tidak ada pdf asli tetapi menambah interaksi -->
+  <div style="background: #f1f5f9; padding: 1.2rem 2rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div>
+      <i class="fas fa-certificate" style="color:#0369a1"></i> <strong>Sertifikasi resmi:</strong> Dicoding Academy · Google Developers Partner
+    </div>
+    <button id="printCvBtn" class="btn-download"><i class="fas fa-print"></i> Cetak / Simpan sebagai PDF</button>
+  </div>
+
+  <footer>
+    <i class="far fa-calendar-alt"></i> CV dinamis | Aldy Muhammad Akbar – Frontend Web Developer | Tersedia untuk kolaborasi & proyek digital
+  </footer>
+</div>
+
+<script>
+  // Fungsi cetak halaman (print-friendly untuk menghasilkan PDF/simpan)
+  const printBtn = document.getElementById('printCvBtn');
+  if(printBtn) {
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+
+  // Optional: menambahkan interaksi kecil animasi skill hover - sudah di css
+  // kita juga bisa menampilkan pesan selamat datang di console, tapi tidak wajib
+  console.log("CV Web Aldy Muhammad Akbar - Frontend Portofolio siap ditampilkan");
+  
+  // sedikit sentuhan: membuat project card lebih dinamis (tidak perlu karena static tetapi kita bisa tambah)
+  // menampilkan tahun sekarang secara dinamis di footer opsional
+  const footerYear = document.querySelector('footer');
+  if(footerYear) {
+    const currentYear = new Date().getFullYear();
+    // menambahkan tahun jika diinginkan tidak merusak tampilan
+    // cukup untuk estetika dynamic
+    if(!footerYear.innerHTML.includes('2026')) {
+      // biar tetap clean kita skip
+    }
+  }
+</script>
+
+<style media="print">
+  body {
+    background: white;
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .btn-download, footer div:first-child, .btn-download {
+    display: none;
+  }
+  .hero {
+    background: #0f172a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .summary {
+    background: #f8fafc;
+  }
+  .section-title i, .skill-chip i {
+    color: black !important;
+  }
+  .skill-chip {
+    background: #eef2ff;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+  .cv-grid {
+    break-inside: avoid;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .contact-info i {
+    color: #0f172a;
+  }
+  footer {
+    display: none;
+  }
+  .project-item, .edu-item, .org-item {
+    break-inside: avoid;
+  }
+</style>
+
+</body>
+</html>
